@@ -1,0 +1,552 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<title>Threadless T-Shirts - God&amp;doG by Chan Ka Tat</title>
+		<meta name="keywords" content="threadless, t-shirts, tee shirts, tshirts, shirts, clothing, design" />
+	<meta name="description" content="A collection of shirts submitted and rated by the public" />
+	<meta name="MSSmartTagsPreventParsing" content="true" />
+	<meta name="copyright" content="(c) 2008 skinnyCorp Inc" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="expires" content="0" />
+	
+	<!-- THE JS FOR SHORTCUTS IS IN THE FOOTER -->
+	
+
+	<script type="text/javascript" src="http://media.threadless.com/js/actions.js?x=14"></script>	
+	<script type="text/javascript" src="http://media.threadless.com/js/lib/prototype.js"></script>
+	<script type="text/javascript" src="http://media.threadless.com/js/src/scriptaculous.js"></script>
+	
+	<link rel="alternate" type="text/xml" title="RSS 2.0 - Weekly updates" href="http://feeds.feedburner.com/ThreadlessWeekly" />
+	<link rel="alternate" type="text/xml" title="RSS 2.0 - Tees in stock" href="http://feeds.feedburner.com/ThreadlessInStock" />
+	<link rel="alternate" type="text/xml" title="RSS 2.0 - Threadless news" href="http://feeds.feedburner.com/ThreadlessNewsampUpdates" />
+	<link rel="alternate" type="text/xml" title="RSS 2.0 - Threadless submissions" href="http://feeds.feedburner.com/ThreadlessSubmissions" />
+	<link rel="alternate" type="text/xml" title="RSS 2.0 - Threadless Thriftee" href="http://feeds.feedburner.com/ThreadlessThriftee" />
+	<link rel="stylesheet" href="http://media.threadless.com/css/global.new.css?x=1" /> 
+	<link rel="stylesheet" href="/css/nav.css?x=3" />
+	<link rel="stylesheet" href="http://media.threadless.com/css/imgreplace.css" />	
+	<script language='Javascript' src='http://media.threadless.com/js/lightbox.js'></script>
+	<link rel="stylesheet" href="/css/product.css?x=6" />
+	<link rel="stylesheet" href="/css/lightbox.css?x=6" />
+	<link rel="stylesheet" href="/css/subs.css?x=6" />
+
+</head>
+<body>
+
+<div id="preloadedImages"></div>
+
+	<!-- logo -->
+					
+		<div id="nav_logo"><a href="http://www.threadless.com/"><img id="img_nav_logo" src="http://media.threadless.com/imgs/logo.gif" alt="Threadless T-Shirts" width="199" height="112"/></a></div>
+		
+		
+		
+	
+	<!-- nav -->
+	<div id="nav_shop">
+		<a href="http://www.threadless.com/catalog" onmouseover="showsubnav('shop')"><img id="img_nav_shop" src="http://media.threadless.com/imgs/nav/nav_shop_r.gif" alt="Shop the catalog" width="75" height="48"/></a>
+	</div>
+	<div id="nav_participate">
+		<a href="http://www.threadless.com/submissions" onmouseover="showsubnav('participate')"><img id="img_nav_participate" src="http://media.threadless.com/imgs/nav/nav_participate.gif" alt="Submit and score designs" width="151" height="48"/></a>
+	</div>
+	<div id="nav_info">
+		<a href="http://www.threadless.com/news" onmouseover="showsubnav('info')"><img id="img_nav_info" src="http://media.threadless.com/imgs/nav/nav_info.gif" alt="Info" width="69" height="48"/></a>
+	</div>
+			<div id="nav_login">
+			<a href="http://www.threadless.com/join" onmouseover="showsubnav('login')"><img id="img_nav_login" src="http://media.threadless.com/imgs/nav/nav_login.gif" alt="Login or Join" width="157" height="48"/></a>
+		</div>
+		
+	<!-- subnav -->
+	<div id="nav_holder">
+		<div id="nav_holder_shop" style="display:none;">
+			<img src="http://media.threadless.com/imgs/nav/subnav_shop.gif" width="452" height="52" alt="Shop"/>		
+			<div class="navmenu">
+				<a href="http://www.threadless.com/catalog" id="nav_catalog" title="Shop full catalog"><i>Shop our full catalog</i></a>
+				<a href="http://www.threadless.com/stockchart" id="nav_stock" title="Check the stock chart"><i>Check the stock chart</i></a>
+				<a href="http://www.threadless.com/gallery" id="nav_gallery" title="Teeriffic Photos"><i>Teeriffic Photos</i></a>
+				<a href="http://www.threadless.com/12club" id="nav_12club" title="12 Club"><i>12 Club</i></a>
+				<a href="http://www.threadless.com/retail" id="nav_retail" title="Retail Store"><i>Retail Store</i></a>
+			</div>
+		</div>
+		<div id="nav_holder_participate" style="display:none;">
+			<img src="http://media.threadless.com/imgs/nav/subnav_participate.gif?x=2" width="452" height="52" alt="Participate"/>	
+			<div class="navmenu">
+				<a href="http://www.threadless.com/submit" id="nav_submit" title="Submit Ideas"><i>Submit Ideas</i></a>
+				<a href="http://www.threadless.com/submissions" id="nav_submissions" title="Score Designs"><i>Score Designs</i></a>
+				<a href="http://www.threadless.com/loves" id="nav_loves" title="Loves Threadless"><i>Loves Threadless</i></a>
+				<a href="http://www.threadless.com/streetteam" id="nav_streetteam" title="StreetTeam"><i>StreetTeam</i></a>
+				<a href="http://www.threadless.com/blogs" id="nav_blogs" title="Blog Forum"><i>Blog Forum</i></a>
+			</div>
+		</div>
+		<div id="nav_holder_info" style="display:none;">
+			<img src="http://media.threadless.com/imgs/nav/subnav_info.gif" width="452" height="52" alt="Info"/>	
+			<div class="navmenu">
+				<a href="http://www.threadless.com/news" id="nav_news" title="News & Updates"><i>News & Updates</i></a>
+				<a href="http://www.threadless.com/press" id="nav_press" title="Press Info"><i>Press Info</i></a>
+				<a href="http://www.threadless.com/contact" id="nav_contact" title="Get In Touch"><i>Get In Touch</i></a>
+				<a href="http://www.threadless.com/help" id="nav_help" title="Service & Help"><i>Service & Help</i></a>
+				<a href="http://www.threadless.com/orderstatus" id="nav_order" title="Order Status"><i>Order Status</i></a>
+			</div>
+		</div>	
+					<div id="nav_holder_login" style="display:none;">
+			<table border="0" cellpadding="0" cellspacing="0"><tr>
+			<form method="post" id="nav_user_login_form">
+			<td><div style="border-right:1px dotted #a7a7a7;"><a href="/join"><img src="http://media.threadless.com/imgs/nav/subnav_join.gif" width="160" height="52" alt="Join Threadless!"/></a></div></td>
+			<td style="line-height:20px;" align="right" class="grey">
+				&nbsp;&nbsp;&nbsp;Username:&nbsp;&nbsp;<br/>
+				Password:&nbsp;&nbsp;
+			</td><td>
+				<input type="text" name="username" value="" tabindex="1" style="width:80px;"/><br/>
+				<input type="password" value="" name="password" tabindex="2" style="width:80px;"/>
+			</td>
+			<td><input type="image" src="http://media.threadless.com/imgs/nav/subnav_login.gif" tabindex="3" width="53" height="52" alt="Login!"/></td>
+			<td><a href="/forgot" class="grey">Forgot<br/>Your<br/>Password?</a></td>
+			</form>
+			</tr></table>
+			</div>
+			</div>
+
+	<script type="text/javascript">
+		function showsubnav(sn){
+		    Element.hide('nav_holder_shop');
+		    $('img_nav_shop').src='http://media.threadless.com/imgs/nav/nav_shop.gif';
+		    Element.hide('nav_holder_participate');
+		    $('img_nav_participate').src='http://media.threadless.com/imgs/nav/nav_participate.gif';
+		    Element.hide('nav_holder_info');
+		    $('img_nav_info').src='http://media.threadless.com/imgs/nav/nav_info.gif';
+		    		    Element.hide('nav_holder_login');
+		    $('img_nav_login').src='http://media.threadless.com/imgs/nav/nav_login.gif';
+		    		    $('nav_holder_'+sn).style.display='';
+		    $('img_nav_'+sn).src='http://media.threadless.com/imgs/nav/nav_'+sn+'_r.gif';
+		}
+		showsubnav('shop');
+	</script>	
+	
+	<!-- cart -->
+	<div id="nav_cart">
+				
+		<table  cellpadding="0" cellspacing="0"><tr>
+		<td width="170">
+			<table  cellpadding="0" cellspacing="0"><tr>
+			<td width="54"><a href="/cart"><img src="http://media.threadless.com/imgs/nav/cart_sad.gif" width="44" height="39" /></a></td>
+			<td><span id="nav_cart_total" style="font-size:39px;">0</span></td>
+			<td>&nbsp;<img src="http://media.threadless.com//imgs/text/items_in_your_cart.gif" align="absmiddle" alt="items in your cart" width="64" height="29" />&nbsp;&nbsp;&nbsp;</td>
+			</tr></table>
+		</td><td>
+			<div style="margin-bottom:2px;"><a href="/cart" class="grey">Checkout</a></div>
+			<a href="/cart"><img src="http://media.threadless.com/imgs/grey_arrow.gif"/></a>
+		</td>
+		</tr></table>
+	</div>
+	<div id="nav_user">
+		<table  cellpadding="0" cellspacing="0"><tr>
+		<td>
+			<div class="blue speech">
+									Howdy, stranger
+							</div>
+		</td>
+		<td valign="top"><img src="http://media.threadless.com/imgs/speech_right.gif"/></td>
+				</tr></table>
+	</div>
+		
+<div id="overlay_piece" style="display:none;"></div>
+<div id="content" style="z-index:1;">
+<script language="JavaScript">
+	var photoIndex=0;
+	var photoArray = new Array('');
+</script>
+<style type="text/css">
+	#product_zoom{z-index:20;position:relative;left:196px;top:276px;margin-top:-28px;width:56px;height:28px;overflow:hidden;}
+	#product_pics{z-index:20;position:relative;left:254px;top:276px;margin-top:-28px;height:28px;overflow:hidden;}
+	#product_loves{z-index:20;position:relative;left:550px;top:86px;margin-top:-84px;width:84px;height:84px;overflow:hidden;}
+</style>
+
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td valign="top" width="700">
+	<div style="width:660px;margin-left:20px;">
+
+	<a name="top"></a>
+	<div class="page_head" style="height:35px;">
+					<span class="blue">God&doG</span> 
+			<span style="font-size:14px;"><i class="grey">by</i> <a href="http://www.graphicairlines.com" target="db">Chan Ka Tat</a></span>				
+	</div>
+	
+	<div style="border:2px solid #CFE2F1;width:636px;">
+		<div id="product_zoom"><a href="#zoom"><img src="http://media.threadless.com/imgs/prod/zoom.gif" width="56" height="28" alt="Zoom!"/></a></div>
+				
+						<table border="0" cellpadding="0" cellspacing="2" width="630"><tr>
+		<td width="250">
+			<div><a href="#zoom"><img  src="http://media.threadless.com/product/239/minizoom.jpg" width="250" height="272"></a></div>
+		</td>
+		<td width="380" align="center"><div id="product_photo"><a href="javascript:showPhoto('photo',photoIndex+1,this)"><img src="http://media.threadless.com/product/.jpg" width="380" height="272"/></a></div></td>	
+		</tr></table>
+	</div>
+
+		<div style="width:640px;border-bottom:1px dotted #898989;padding-bottom:15px;margin-top:20px;">	
+	<table border="0" cellpadding="0" cellspacing="0"><tr>
+		<td valign="top" width="450">
+		<div id="reprint_overlay" style="display:none;"></div>
+		<div id="add_overlay" style="display:none; border-color:#3A89C9;"></div>
+		<div>	
+			
+						
+			<style type="text/css">
+				.product_type tr td{font-size:11px;}
+				.product_type{background-image:url(http://media.threadless.com/imgs/prod/price/onbg.gif);background-repeat:repeat-x;margin-bottom:6px;}
+				.product_button{line-height:23px;float:left;margin-right:10px;margin-bottom:15px;}
+				.imgborders{border-left:6px solid #fff;border-right:6px solid #fff;}
+				.product_stock{width:52px;text-align:center;}
+			</style>
+			
+														<div style="clear:both;"></div>
+						<table border="0" cellpadding="0" cellspacing="0" class="product_type"><tr height="29">
+						<td><img src="http://media.threadless.com/imgs/prod/price/dollar_sign.gif"/><img src="http://media.threadless.com/imgs/prod/price/15.gif"/><img class="imgborders" src="http://media.threadless.com/imgs/prod/price/guys_tee.gif"/></td>					
+						<td>&nbsp;on Khaki Fruit of the Loom tee&nbsp;</td></tr></table> 
+						<div style="clear:both;"></div>
+										
+					
+																	<div class="product_button">
+							<div><a id="reprintme_1834" href="javascript:reprint_show('1834');" class="orange"><img src="http://media.threadless.com/imgs/prod/newsize/size_s						_o.gif" width="52"/></a></div>
+															<div class="product_stock"><a id="reprintme_1834" href="javascript:reprint_show('1834');" class="orange">
+								Sold out!</a></div>
+													</div>
+																	<div class="product_button">
+							<div><a id="reprintme_1835" href="javascript:reprint_show('1835');" class="orange"><img src="http://media.threadless.com/imgs/prod/newsize/size_m						_o.gif" width="52"/></a></div>
+															<div class="product_stock"><a id="reprintme_1835" href="javascript:reprint_show('1835');" class="orange">
+								Sold out!</a></div>
+													</div>
+																	<div class="product_button">
+							<div><a id="reprintme_1836" href="javascript:reprint_show('1836');" class="orange"><img src="http://media.threadless.com/imgs/prod/newsize/size_l						_o.gif" width="52"/></a></div>
+															<div class="product_stock"><a id="reprintme_1836" href="javascript:reprint_show('1836');" class="orange">
+								Sold out!</a></div>
+													</div>
+																	<div class="product_button">
+							<div><a id="reprintme_1837" href="javascript:reprint_show('1837');" class="orange"><img src="http://media.threadless.com/imgs/prod/newsize/size_xl						_o.gif" width="52"/></a></div>
+															<div class="product_stock"><a id="reprintme_1837" href="javascript:reprint_show('1837');" class="orange">
+								Sold out!</a></div>
+													</div>
+																	<div class="product_button">
+							<div><a id="reprintme_1838" href="javascript:reprint_show('1838');" class="orange"><img src="http://media.threadless.com/imgs/prod/newsize/size_2xl						_o.gif" width="52"/></a></div>
+															<div class="product_stock"><a id="reprintme_1838" href="javascript:reprint_show('1838');" class="orange">
+								Sold out!</a></div>
+													</div>
+																			<div style="clear:both;"></div>
+						<table border="0" cellpadding="0" cellspacing="0" class="product_type"><tr height="29">
+						<td><img src="http://media.threadless.com/imgs/prod/price/dollar_sign.gif"/><img src="http://media.threadless.com/imgs/prod/price/17.gif"/><img class="imgborders" src="http://media.threadless.com/imgs/prod/price/girly_tee.gif"/></td>					
+						<td>&nbsp;on Creme American Apparel tee&nbsp;</td></tr></table> 
+						<div style="clear:both;"></div>
+										
+					
+																	<div class="product_button">
+							<div><a id="reprintme_1839" href="javascript:reprint_show('1839');" class="orange"><img src="http://media.threadless.com/imgs/prod/newsize/size_s						_o.gif" width="52"/></a></div>
+															<div class="product_stock"><a id="reprintme_1839" href="javascript:reprint_show('1839');" class="orange">
+								Sold out!</a></div>
+													</div>
+																	<div class="product_button">
+							<div><a id="reprintme_1840" href="javascript:reprint_show('1840');" class="orange"><img src="http://media.threadless.com/imgs/prod/newsize/size_m						_o.gif" width="52"/></a></div>
+															<div class="product_stock"><a id="reprintme_1840" href="javascript:reprint_show('1840');" class="orange">
+								Sold out!</a></div>
+													</div>
+																	<div class="product_button">
+							<div><a id="reprintme_1841" href="javascript:reprint_show('1841');" class="orange"><img src="http://media.threadless.com/imgs/prod/newsize/size_l						_o.gif" width="52"/></a></div>
+															<div class="product_stock"><a id="reprintme_1841" href="javascript:reprint_show('1841');" class="orange">
+								Sold out!</a></div>
+													</div>
+																			<div style="clear:both;"></div>
+						<table border="0" cellpadding="0" cellspacing="0" class="product_type"><tr height="29">
+						<td><img src="http://media.threadless.com/imgs/prod/price/dollar_sign.gif"/><img src="http://media.threadless.com/imgs/prod/price/17.gif"/><img class="imgborders" src="http://media.threadless.com/imgs/prod/price/girly_tee.gif"/></td>					
+						<td>&nbsp;on Natural American Apparel tee&nbsp;</td></tr></table> 
+						<div style="clear:both;"></div>
+										
+					
+																	<div class="product_button">
+							<div><a id="reprintme_3835" href="javascript:reprint_show('3835');" class="orange"><img src="http://media.threadless.com/imgs/prod/newsize/size_s						_o.gif" width="52"/></a></div>
+															<div class="product_stock"><a id="reprintme_3835" href="javascript:reprint_show('3835');" class="orange">
+								Sold out!</a></div>
+													</div>
+																	<div class="product_button">
+							<div><a id="reprintme_3836" href="javascript:reprint_show('3836');" class="orange"><img src="http://media.threadless.com/imgs/prod/newsize/size_m						_o.gif" width="52"/></a></div>
+															<div class="product_stock"><a id="reprintme_3836" href="javascript:reprint_show('3836');" class="orange">
+								Sold out!</a></div>
+													</div>
+																	<div class="product_button">
+							<div><a id="reprintme_3837" href="javascript:reprint_show('3837');" class="orange"><img src="http://media.threadless.com/imgs/prod/newsize/size_l						_o.gif" width="52"/></a></div>
+															<div class="product_stock"><a id="reprintme_3837" href="javascript:reprint_show('3837');" class="orange">
+								Sold out!</a></div>
+													</div>
+																	<div class="product_button">
+							<div><a id="reprintme_3834" href="javascript:reprint_show('3834');" class="orange"><img src="http://media.threadless.com/imgs/prod/newsize/size_xl						_o.gif" width="52"/></a></div>
+															<div class="product_stock"><a id="reprintme_3834" href="javascript:reprint_show('3834');" class="orange">
+								Sold out!</a></div>
+													</div>
+											<div style="clear:both;"></div>	
+		</div>
+		
+		</td><td valign="top" width="190">
+							<div style="margin-bottom:4px;"><img src="http://media.threadless.com/imgs/prod/made_with_hard_work.gif" width="187" height="39" alt="This was made with..."/></div>				
+				<div style="margin-bottom:6px;" class="grey">
+					Good ol' plastisol inks.
+				</div>					
+				<div style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px dotted #898989;" class="grey"><a href="/templates/specialty.pdf" class="grey">Learn more...</a> (6.9MB PDF)</div>			
+				
+						
+			<div style="margin-bottom:4px;"><a href="/sizechart" class="grey"><img src="http://media.threadless.com/imgs/prod/size_chart.gif" width="153" height="34" alt="Not sure what size you need?"/></a></div>	
+			<div style="margin-bottom:20px;"><a href="/sizechart" class="grey">Click here to see the size chart.</a></div>
+			
+						<div style="margin-bottom:4px;"><a id="reprint_product" href="javascript:reprint_product(239);" class="grey"><img src="http://media.threadless.com/imgs/prod/reprint_request.gif" width="159" height="34" alt="Are we sold out of your size?"/></a></div>	
+			<div style="margin-bottom:20px;"><a href="javascript:reprint_product(239);" class="grey">Click here to request a reprint!</a></div>
+					</td>
+	</tr></table>
+	</div>
+		<br><br>
+	<table border="0" cellpadding="0" cellspacing="0" width="630">
+	<tr>
+	
+		<td valign="top" width="340">
+			<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="19" valign="bottom"><img src="http://media.threadless.com/imgs/about_arrow_top.gif"></td>
+				<td>&nbsp;&nbsp;&nbsp;</td>
+				<td><img src="http://media.threadless.com//imgs/text/about_my_design.gif" align="absmiddle" alt="About my design" width="145" height="21" /></td>
+			</tr>
+			<tr height="150">
+				<td width="19" background="http://media.threadless.com/imgs/about_arrow_side.gif">&nbsp;</td>
+				<td>&nbsp;</td>
+				<td valign="top">
+											<div style="margin-bottom:8px;margin-top:4px;font-size:14px;" class="grey">
+							<i style='font-size:12px;'>by</i> 
+															<a class='blue' href="/profile/41929/graphicairlines">Chan Ka Tat</a>
+								<span style='font-size:12px;'>aka</span> <a class='blue' href="/profile/41929/graphicairlines">graphicairlines</a>
+													</div>
+						Sorry! I haven't had a chance to write anything yet.				</td>
+			</tr>
+						<tr>
+				<td width="19" valign="top"><img src="http://media.threadless.com/imgs/about_arrow_bottom.gif"></td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+						</table>
+		</td>		
+		<td width="40">&nbsp;</td>
+				<td width="260" valign="top">
+										<div><img src="http://media.threadless.com//imgs/text/my_original_submission_n.gif" align="absmiddle" alt="My original submission...n" width="204" height="20" /></div>
+				<div style="margin-top:8px;">
+				<table border="0" cellpadding="0" cellspacing="0" class="product_submission">
+				<tr>
+					<td><table cellpadding="0" cellspacing="0" border="0" >
+	<tr>
+	<td style="background-position:8px 8px;background-repeat:no-repeat;background-image:url(http://media.threadless.com/subs/small/25561t.gif)" width="116" height="86"><div id="sub_25561"><a onmouseover="showQuick(25561)" href="/submission/25561/God_doG"><img src="http://media.threadless.com/imgs/overlays/empty.gif" width="116" height="86"></a></div></td>
+	</tr>
+</table>
+</td>
+					<td>
+						<div class="info_t">Average score:</div>			
+						<div class="info_b" style="margin-bottom:6px;">
+							2.95 <i style="font-weight:normal;font-size:11px;">out of</i> 5
+						</div
+						<div class="info_t">Number scored:</div>
+						<div class="info_b" style="margin-bottom:6px;">552 people</div>
+					</td>
+				</tr>
+				</table>	
+				</div>
+						
+									
+								
+		</td>
+			</tr>
+	</table>
+	
+		<a name="zoom"> 
+				
+		<div style="width:665px;margin-top:20px;">
+						<div style="width:665px;overflow:hidden;"><div style="margin-left:0px;"><a href="#top"><img id="zoomimage" src="http://media.threadless.com//product/239/zoom.gif"></a></div></div>
+			
+		</div>	
+	
+	
+	
+		
+	
+</td><td valign="top" width="250">	
+
+	<div style="height:35px;"></div>
+	
+		<div style="margin-bottom:15px;border-bottom:3px solid #CFE2F1;padding-bottom:10px;">
+	<table border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td><div style="margin-bottom:3px;padding:5px;border:1px solid #ddd;height:50px;"><a href="/product/238/Pencils_Are_Erasist"><img src="http://media.threadless.com/product/105x50/238-minizoom.jpg" width="105" height="50" alt="Pencils Are Erasist" align="left"/></a></div></td>
+		<td width="15">&nbsp;</td>
+		<td><div style="margin-bottom:3px;padding:5px;border:1px solid #ddd;height:50px;"><a href="/product/240/Gingerbread_Nightmares"><img src="http://media.threadless.com/product/105x50/240-minizoom.jpg" width="105" height="50" alt="Gingerbread Nightmares" align="left"/></a></div></td>
+	</tr><tr>
+		<td align="center"><a href="/product/238/Pencils_Are_Erasist" class="nou" style="font-size:11px;">Prev in the catalog</a></td>
+		<td width="15">&nbsp;</td>
+		<td align="center"><a href="/product/240/Gingerbread_Nightmares" class="nou" style="font-size:11px;">Next in the catalog</a></td>
+	</tr>
+	</table> 
+	</div>
+	
+	
+		
+	
+		
+	
+	
+		
+			
+			
+			
+	
+		<div style="margin-bottom:25px;">
+			<div style="margin-bottom:3px;"><img src="http://media.threadless.com//imgs/text/from_the_gallery_n.gif" align="absmiddle" alt="From the gallery...n" width="164" height="22" /></div>
+		
+	<div class="right_gallery">
+		<a href="/profile/209057/Chicagrl8/photos/131161"><img src="http://media.threadless.com/teeriffic/105x75/131161.jpg" width="105" height="75" alt="" /></a><a href="/profile/126178/lucindyation/photos/115007"><img src="http://media.threadless.com/teeriffic/105x75/115007.jpg" width="105" height="75" alt="" /></a><a href="/profile/175498/Albac0re/photos/105559"><img src="http://media.threadless.com/teeriffic/105x75/105559.jpg" width="105" height="75" alt="" /></a><a href="/profile/293782/ih3artp3nguins/photos/83109"><img src="http://media.threadless.com/teeriffic/105x75/83109.jpg" width="105" height="75" alt="" /></a>	</div>		<div class="right_smalllink">
+			<div class="arrowitem"><a href="/gallery/239/God_doG">All submitted pictures of this</a></div>
+			<div class="arrowitem"><a href="/submitphoto/239/God_doG">Submit a photo of yourself wearing this</a></div>
+		</div>
+		</div>
+	
+		<div style="margin-bottom:25px;">
+	<div><img src="http://media.threadless.com//imgs/text/tell_friends_get_points_n.gif" align="absmiddle" alt="Tell friends, get points n" width="220" height="22" /></div>
+			<div style="font-size:11px;">
+		<a href="/join">Login or join</a> Threadless to tell friends about products you want or think they'd want to earn points!
+		</div>
+		</div>
+	
+	
+		<div style="margin-bottom:25px;">
+	<div><img src="http://media.threadless.com//imgs/text/buzz_in_the_blogs_n.gif" align="absmiddle" alt="Buzz in the blogs n" width="164" height="22" /></div>
+						<div style="margin-top:4px;margin-bottom:2px;"><a href="/profile/573503/deyaz/blog/264356/just_reminder_about_Global_Warming_Effect">just reminder about Global Warming Effect</a></div>
+			<div style="font-size:9px;color:#777;padding-left:12px;background-position:0px 2px;background-image:url(http://media.threadless.com/imgs/quotes.gif);background-repeat:no-repeat;"> in this simple message of my design..the point is: i just try to reminder to all of u about ...</div>
+					<div style="margin-top:4px;margin-bottom:2px;"><a href="/profile/178688/snoonies585/blog/13184/I_know_these_product_blogs_are_boring_and_this_is_no_exception">I know these product blogs are boring, and this is no exception...</a></div>
+			<div style="font-size:9px;color:#777;padding-left:12px;background-position:0px 2px;background-image:url(http://media.threadless.com/imgs/quotes.gif);background-repeat:no-repeat;"> I just don't know why but I really really really like this shirt.  And I want it to be repri...</div>
+					<div style="margin-top:4px;margin-bottom:2px;"><a href="/profile/130660/dragonfish/blog/10694/">Untitled</a></div>
+			<div style="font-size:9px;color:#777;padding-left:12px;background-position:0px 2px;background-image:url(http://media.threadless.com/imgs/quotes.gif);background-repeat:no-repeat;"> Reprint this for all those closeted Christians</div>
+				<div class="right_smalllink" style="margin-top:8px;">
+			<div class="arrowitem"><a href="/blogs/products/239/God_doG">Check out all blogs about this design</a></div>
+			<div class="arrowitem"><a href="/blogproduct/239/God_doG">Post about this in your own blog</a></div>
+		</div>
+		
+</td></tr>
+</table> 
+
+
+
+
+<div id="bottom">
+
+	
+<div style="margin-top:20px;margin-left:20px;border-top:1px dotted #C4C4C4;padding-top:15px;">
+
+	<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr>
+		<td>
+						<a href="http://www.threadless.com/news"><img src="http://media.threadless.com/imgs/foot_news.gif" width="160" height="32"/></a>
+			<div style="margin-top:2px;font-size:10px;margin-left:2px;"><i class="grey">Update:</i> <span class="orange">Apr 21, '08</span></div>
+		</td>
+		<td width="39" align="center"><img src="http://media.threadless.com/imgs/foot_line.gif" width="1" height="43"/></td>
+		<td>
+						<a href="http://www.threadless.com/interviews"><img src="http://media.threadless.com/imgs/foot_interviews.gif" width="214" height="32"/></a>
+			<div style="margin-top:2px;font-size:10px;margin-left:2px;"><i class="grey">Update:</i> <span class="orange">Thomas De Santis</span></div>
+		</td>
+		<td width="39" align="center"><img src="http://media.threadless.com/imgs/foot_line.gif" width="1" height="43"/></td>
+		<td>
+			<a href="http://www.threadless.com/sightings"><img src="http://media.threadless.com/imgs/foot_sightings.gif" width="262" height="32"/></a>
+			<div style="margin-top:2px;font-size:10px;margin-left:2px;"><span class="orange">Threadspotting every Friday!</span></div>
+		</td>
+		<td width="39" align="center"><img src="http://media.threadless.com/imgs/foot_line.gif" width="1" height="43"/></td>
+		<td>
+			<a href="http://www.threadless.com/gift"><img src="http://media.threadless.com/imgs/foot_gift.gif" width="176" height="32"/></a>
+			<div style="margin-top:2px;font-size:10px;margin-left:2px;"><span class="orange">You know they'll love it!</span></div>
+		</td>
+	</tr></table>
+</div>
+
+<div id="footer_links" class="grey" style="margin-top:15px;margin-left:20px;border-top:1px dotted #C4C4C4;padding-top:10px;">
+	<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr>
+		<td>
+			<img src="http://media.threadless.com/imgs/foot_shop.gif" align="absmiddle"/>&nbsp;
+			<a href="http://www.threadless.com/catalog">Catalog</a> &middot;
+			<a href="http://www.threadless.com/stockchart">Stock Chart</a> &middot;
+			<a href="http://www.threadless.com/catalog/select">Select</a> &middot;
+			<a href="http://www.threadless.com/catalog/typetees">Type Tees</a> &middot;
+			<a href="http://www.threadless.com/12club">12 Club</a> &middot;
+			<a href="http://www.threadless.com/catalog/kids">Kids!</a>
+		</td> 
+		<td align="center">
+			<img src="http://media.threadless.com/imgs/foot_participate.gif" align="absmiddle"/>&nbsp;&nbsp;&nbsp;
+			<a href="http://www.threadless.com/submissions">Score Designs</a> &middot;
+			<a href="http://www.threadless.com/submit">Submit Ideas</a> &middot;
+			<a href="http://www.threadless.com/gallery">Photos</a> &middot;
+			<a href="http://www.threadless.com/loves">Loves</a> &middot;
+			<a href="http://www.threadless.com/streetteam">Street Team</a> &middot;
+			<a href="http://www.threadless.com/blogs">Forum</a>
+		</td>
+		<td align="right">
+			<img src="http://media.threadless.com/imgs/foot_service.gif" align="absmiddle"/>&nbsp;&nbsp;
+			<a href="http://www.threadless.com/news">News</a> &middot;
+			<a href="http://www.threadless.com/help">Help</a> &middot;
+			<a href="http://www.threadless.com/orderstatus">Order Status</a> &middot;
+			<a href="http://www.threadless.com/contact">Contact</a> &middot;
+			<a href="http://www.threadless.com/press">Press</a> 
+		</td>
+	</tr></table>
+</div>
+
+
+<div style="border-top:1px dotted #C4C4C4;margin-left:20px;margin-top:10px;padding-top:15px;">
+	<span style="font-size:10px;">
+		&copy; 2008, a <a href="http://www.skinnycorp.com" title="The best web development company in Chicago">skinnyCorp LLC</a> company. 	
+All designs Copyright by owner. 
+        &nbsp;&nbsp; <a href="/privacypolicy">Privacy Policy</a>.
+        &nbsp;&nbsp; <a href="/termsofuse">Terms of Use</a>.  
+		&nbsp;&nbsp;
+		<img src="http://media.threadless.com/imgs/rss.gif" width="16" height="11" align="absmiddle"/>&nbsp;
+		<a href="http://feeds.feedburner.com/ThreadlessWeekly">Weekly new tees</a>
+		&nbsp;&nbsp;
+		<img src="http://media.threadless.com/imgs/rss.gif" width="16" height="11" align="absmiddle"/>&nbsp;
+		<a href="http://feeds.feedburner.com/ThreadlessInStock">In stock</a>
+		&nbsp;&nbsp;
+		<img src="http://media.threadless.com/imgs/rss.gif" width="16" height="11" align="absmiddle"/>&nbsp;
+		<a href="http://feeds.feedburner.com/ThreadlessNewsampUpdates">News</a>
+		&nbsp;&nbsp;
+		<img src="http://media.threadless.com/imgs/rss.gif" width="16" height="11" align="absmiddle"/>&nbsp;
+		<a href="http://feeds.feedburner.com/ThreadlessSubmissions">Submissions</a>
+		&nbsp;&nbsp;
+		<img src="http://media.threadless.com/imgs/rss.gif" width="16" height="11" align="absmiddle"/>&nbsp;
+		<a href="http://feeds.feedburner.com/ThreadlessThriftee">Thriftee</a>
+				<span style="color:#AAA;">&nbsp;&nbsp;
+        <!-- Rendered in 0.2173 seconds on 10.10.10.166 -->
+        
+
+	</span>
+</div>
+
+
+<br/><br/>
+
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3478547-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
+<script src="https://ssl.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-69715-3";
+urchinTracker();
+</script>
+
+</body>
+</html>
