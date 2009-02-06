@@ -44,6 +44,9 @@ class Database(sift_ptr):
     def contains_label(self, label):
         return siftlib.sift_database_contains_label(self, label)
 
+    def remove_image(self, label):
+        return siftlib.sift_database_remove_image(self, label)
+
     def image_count(self):
         return siftlib.sift_database_image_count(self)
 
@@ -61,3 +64,4 @@ siftlib.sift_database_add_image_file.argtypes = [Database, ctypes.c_char_p, ctyp
 siftlib.sift_database_contains_label.argtypes = [Database, ctypes.c_char_p]
 siftlib.sift_database_image_count.argtypes = [Database]
 siftlib.sift_database_feature_count.argtypes = [Database]
+siftlib.sift_database_remove_image.argtypes = [Database, ctypes.c_char_p]

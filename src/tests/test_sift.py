@@ -24,7 +24,7 @@ class SIFTDatabaseTests(unittest.TestCase):
         self.assertEqual(db.image_count(), 2)
         self.assert_(db.feature_count() > 0)
         
-        self.assertRaises(Exception,
+        self.assertRaises(sift.SIFTError,
                           lambda: db.add_image_file('duckies-person.jpg', 'test2'))
         self.assertRaises(Exception,
                           lambda: db.add_image_file('non-existent-image.jpg', 'woo'))
@@ -42,6 +42,40 @@ class SIFTDatabaseTests(unittest.TestCase):
 
         db = sift.Database()
         test_db_duckies(db)
+
+    def test_remove_image(self):
+        "Removing images"
+        db = sift.Database()
+        db.add_image_file('duckies-person.jpg', 'test1')
+        db.add_image_file('duckies-person.jpg', 'test2')
+        db.add_image_file('duckies-person.jpg', 'test3')
+        self.assert_(db.contains_label('test1') and db.contains_label('test2') \
+                         and db.contains_label('test3'))
+        self.assert_(db.feature_count() > 0)
+        self.assertEqual(db.image_count(), 3)
+
+        self.assertEqual(db.remove_image('test1'), True)
+        self.assert_((not db.contains_label('test1')) and db.contains_label('test2') \
+                         and db.contains_label('test3'))
+        self.assert_(db.feature_count() > 0)
+        self.assertEqual(db.image_count(), 2)
+        
+        self.assertEqual(db.remove_image('test2'), True)
+        self.assert_((not db.contains_label('test1')) and (not db.contains_label('test2')) \
+                         and db.contains_label('test3'))
+        self.assert_(db.feature_count() > 0)
+        self.assertEqual(db.image_count(), 1)
+        
+        self.assertEqual(db.remove_image('test3'), True)
+        self.assert_((not db.contains_label('test1')) and (not db.contains_label('test2')) \
+                         and (not db.contains_label('test3')))
+        self.assertEqual(db.feature_count(), 0)
+        self.assertEqual(db.image_count(), 0)
+        
+        self.assertEqual(db.remove_image('non-existent-label'), False)
+        self.assertRaises(ctypes.ArgumentError,
+                          lambda: db.remove_image(5))
+
 
 
 unittest.main()

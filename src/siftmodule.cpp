@@ -93,6 +93,12 @@ extern "C" void sift_database_add_image_file(SIFT::Database *db, char *path, cha
   }
 }
 
+extern "C" bool sift_database_remove_image(SIFT::Database *db, char *label)
+{
+  return db->remove_image(label);
+}
+
+
 
 PyObject* match_results_to_python(const SIFT::MatchResultVector& matches)
 {
