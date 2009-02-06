@@ -1,0 +1,28 @@
+SIFT
+John Wiseman  jjwiseman@gmail.com  http://lemonodor.com/
+
+
+This is a SIFT object recognition library for C++ and Python.  It is
+based on Rob Hess' SIFT feature detector[1].
+
+To build:
+
+1. Install the following packages (Ubuntu 8.10):
+  Dev tools:
+    autoconf
+    automake
+    libtool
+  Vision/image processing libraries:
+    libcv1
+    libcv-dev
+    gsl-dev
+    libgsl0-dev
+
+2. cd src && ./autogen.sh && ./configure && make
+
+See src/tests/test_sift.py for what the library is capable of at the
+moment.
+
+
+[1] http://web.engr.oregonstate.edu/~hess/
+
