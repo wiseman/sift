@@ -11,6 +11,7 @@ config.h
 libtool
 stamp-h1
 
+*.o
 *.pyc
 
 sift-add
