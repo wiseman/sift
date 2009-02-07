@@ -186,9 +186,6 @@ extern "C" SIFT::MatchResultVector* sift_database_match_image_file(SIFT::Databas
 
 static PyMethodDef SIFTMethods[] = {
   {"database_match_image_file", pysift_database_match_image_file, METH_VARARGS, ""},
-  //  {"db_match_image", db_match_image, METH_VARARGS, ""},
-  //  {"db_fast_load", db_fast_load, METH_VARARGS, ""},
-  //  {"kl_get_features", kl_get_features, METH_VARARGS, ""},
   {NULL, NULL, 0, NULL}        /* Sentinel */
 };
 
@@ -197,6 +194,4 @@ PyMODINIT_FUNC init_sift(void)
   Py_InitModule("_sift", SIFTMethods);
   PyObject* ctypes = PyImport_ImportModule("ctypes");
   siftdb_t =  PyObject_GetAttrString(ctypes, "c_void_p");
-  // evoimage_t =  PyObject_GetAttrString(ctypes, "c_void_p");
-  // evokl_t = PyObject_GetAttrString(ctypes, "c_void_p");
 }
