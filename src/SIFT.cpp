@@ -19,6 +19,9 @@ extern "C" {
 using namespace SIFT;
 
 
+
+// Implementation of SObject reference counting.
+
 SObjectImpl::SObjectImpl()
   : m_ref_count(0)
 {
@@ -53,6 +56,13 @@ unsigned SObjectImpl::ref_count()
 }
 
 
+// If an error occurs, call get_last_error and get_last_errno to get
+// error information.
+//
+// FIXME: How do you know if an error occurred?  How about the
+// QuickDraw 3D API-style of calling user-provided callbacks for
+// errors and warnings?
+
 static std::string last_error("");
 static int last_errno(0);
 
@@ -73,9 +83,7 @@ static void set_last_error(const std::string& message, int err)
 }
 
 
-
-
-
+// Implementation of MatchResult.
 
 MatchResult::MatchResult(const std::string& l, float s, float p)
     : label(l), score(s), percentage(p)
@@ -105,11 +113,14 @@ bool MatchResult::operator==(const MatchResult& result) const
 }
 
 
+// Implementation of Database.
+
 Database::Database()
 : m_coalesced_features(NULL), m_kd_tree(NULL),
   m_need_to_coalesce(true), m_filename(""), m_id_counter(0), m_num_features(0)
 {
 }
+
 
 Database::~Database()
 {
@@ -120,9 +131,9 @@ Database::~Database()
 }
 
 
-/*
-  Extracts features from an image and adds them to the db, indexed by ID.
-*/
+// Extracts features from an image and adds them to the db, indexed by
+// ID.
+
 bool Database::add_image_file(const std::string& path, const std::string& label)
 {
     IplImage *image = cvLoadImage(path.c_str(), 1);
@@ -137,6 +148,8 @@ bool Database::add_image_file(const std::string& path, const std::string& label)
     return result;
 }
 
+
+// For debugging.
 
 template <class key_t, class value_t>
 void dump_map(const std::map<key_t, value_t>& map)
@@ -193,9 +206,10 @@ bool Database::add_image(IplImage *image, const std::string& label)
     return add_image_features(features, num_features, label);
 }
 
-/*
-  Extracts features from an image and adds them to the db, indexed by ID.
-*/
+
+// Extracts features from an image and adds them to the db, indexed by
+// ID.
+
 bool Database::add_image_features(struct feature *features, int n, const std::string& label)
 {
   if (contains_label(label)) {
@@ -222,6 +236,9 @@ bool Database::add_image_features(struct feature *features, int n, const std::st
   m_need_to_coalesce = true;
   return true;
 }
+
+
+// Rebuilds the kd-tree.  We do this lazily only when necessary.
 
 void Database::coalesce()
 {
@@ -257,6 +274,7 @@ void Database::coalesce()
 
 unsigned const Database::feature_count ()
 {
+  // Ensure that m_num_features is accurate.
   coalesce();
   return m_num_features;
 }
@@ -277,6 +295,8 @@ static bool result_score_cmp(const MatchResult& r1, const MatchResult& r2)
     return r1.score > r2.score;
 }
 
+
+// This is the n^2 pairwise-matcher.
 
 MatchResultVector Database::exhaustive_match(struct feature *features, int n, int max_nn_chks, double dist_sq_ratio)
 {
@@ -319,6 +339,9 @@ MatchResultVector Database::exhaustive_match(struct feature *features, int n, in
 
     return sorted_results;
 }
+
+
+// This is the BBF-based matcher.
 
 MatchResultVector Database::match(struct feature *features, int n, int max_nn_chks, double max_dist)
 {
@@ -364,6 +387,7 @@ MatchResultVector Database::match(struct feature *features, int n, int max_nn_ch
     }
 
     // Now go through and compute the percentages.
+    // FIXME: Still think the idea of a "percentage" is misguided.
     for (MatchResultMap::iterator i = result_map.begin();
          i != result_map.end();
          i++) {
@@ -440,6 +464,12 @@ bool Database::save(bool binary)
   }
   return save(m_filename.c_str(), binary);
 }
+
+
+// FIXME: The part ASCII/part binary database format is a pretty ugly
+// hack I put in fast just to reduce file size over the most obvious
+// ASCII format.  Maybe Google protcol buffers would be a good
+// replacement.
 
 bool Database::save(const char* path, bool binary)
 {
@@ -546,4 +576,3 @@ bool Database::load(const char* path, bool binary)
     m_need_to_coalesce = true;
     return true;
 }
-
