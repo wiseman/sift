@@ -31,9 +31,9 @@ void* get_c_ptr(PyObject *c_void_p) {
 static PyObject *SIFTErrorFactory = NULL;
 static PyObject *PyExc_SIFTError = NULL;
 
-static void raise_sift_error(const std::string& msg)
+static void raise_sift_error(const std::string& msg, const int err)
 {
-  std::cerr << "Raising SIFTError: " << msg << "\n";
+  // std::cerr << "Raising SIFTError: " << msg << ", " << err << "\n";
   if (!SIFTErrorFactory) {
     PyObject *mod = PyImport_ImportModule("sift");
     if (!mod) std::cerr << "Error: Unable to find module sift\n";
@@ -46,7 +46,7 @@ static void raise_sift_error(const std::string& msg)
   }
   
   PyObject *m = PyString_FromString(msg.c_str());
-  PyObject *args = Py_BuildValue("(O)", m);
+  PyObject *args = Py_BuildValue("(Oi)", m, err);
   PyObject *exc = PyObject_Call(SIFTErrorFactory, args, NULL);
   PyErr_SetObject(PyExc_SIFTError, exc);
   Py_XDECREF(exc);
@@ -65,7 +65,7 @@ extern "C" SIFT::Database* sift_database_new()
   return new SIFT::Database();
 }
 
-extern "C" bool sift_database_contains_label(SIFT::Database *db, char *label)
+extern "C" bool sift_database_contains_label(SIFT::Database *db, const char *label)
 {
   return db->contains_label(std::string(label));
 }
@@ -82,21 +82,40 @@ extern "C" unsigned sift_database_feature_count(SIFT::Database *db)
 
 
 
-extern "C" void sift_database_add_image_file(SIFT::Database *db, char *path, char *label)
+extern "C" void sift_database_add_image_file(SIFT::Database *db, char *path, const char *label)
 {
   bool result;
   Py_BEGIN_ALLOW_THREADS
     result = db->add_image_file(path, label);
   Py_END_ALLOW_THREADS
   if (result != true) {
-    raise_sift_error(SIFT::get_last_error());
+    raise_sift_error(SIFT::get_last_error(), SIFT::get_last_errno());
   }
 }
 
-extern "C" bool sift_database_remove_image(SIFT::Database *db, char *label)
+extern "C" bool sift_database_remove_image(SIFT::Database *db, const char *label)
 {
   return db->remove_image(label);
 }
+
+extern "C" bool sift_database_save(SIFT::Database *db, const char *path)
+{
+  if (!db->save(path, true)) {
+    raise_sift_error(SIFT::get_last_error(), SIFT::get_last_errno());
+    return false;
+  }
+  return true;
+}
+
+extern "C" bool sift_database_load(SIFT::Database *db, const char *path)
+{
+  if (!db->load(path, true)) {
+    raise_sift_error(SIFT::get_last_error(), SIFT::get_last_errno());
+    return false;
+  }
+  return true;
+}
+
 
 
 
@@ -130,7 +149,7 @@ static PyObject* pysift_database_match_image_file(PyObject *self, PyObject *args
   IplImage *image = cvLoadImage(file_path, 1);
   if (!image) {
     raise_sift_error(std::string("Unable to load image file ") + 
-		     std::string(file_path));
+		     std::string(file_path), errno);
     return NULL;
   }
 

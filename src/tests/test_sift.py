@@ -76,6 +76,40 @@ class SIFTDatabaseTests(unittest.TestCase):
         self.assertRaises(ctypes.ArgumentError,
                           lambda: db.remove_image(5))
 
+    def test_save_load(self):
+        "Saving and loading"
+        db = sift.Database()
+        db.add_image_file('duckies-shirt.jpg', 'duckies')
+        db.add_image_file('viking-bird-shirt.jpg', 'viking-bird')
+        try:
+            os.remove('temp.mdl')
+        except:
+            pass
+        db.save('temp.mdl')
+
+        db = sift.Database()
+        self.assertEqual(db.image_count(), 0)
+        self.assert_(db.load('temp.mdl'))
+        self.assertEqual(db.image_count(), 2)
+        result = db.match_image_file('duckies-person.jpg')
+        print result
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0].label, 'duckies')
+        result = db.match_image_file('viking-bird-person.jpg')
+        print result
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0].label, 'viking-bird')
+        result = db.match_image_file('tiger-person.jpg')
+        self.assertEqual(len(result), 0)
+
+        self.assertRaises(TypeError, lambda: db.load(5))
+    
+        try:
+            os.remove('temp.mdl')
+        except:
+            pass
+
+
 
 
 unittest.main()

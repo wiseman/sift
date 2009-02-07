@@ -1,10 +1,11 @@
 #!/usr/bin/python
 
 import ctypes
-
+import sys
 import _sift
 
 siftlib = ctypes.pydll.LoadLibrary('_siftmodule.so')
+libc = ctypes.pydll.LoadLibrary("libc.so.6")
 
 
 class sift_ptr(ctypes.c_void_p):
@@ -14,20 +15,30 @@ class sift_ptr(ctypes.c_void_p):
 
 
 class SIFTError(Exception):
-  def __init__(self, msg):
+  def __init__(self, msg, errno):
       Exception.__init__(self, msg)
+      self.errno = errno
+      sys.stderr.write('%s\n' % (self,))
   def __str__(self):
-      return "%s" % (self.message,)
+      if self.errno != 0:
+          return "S! %s: %s" % (self.message, libc.strerror(self.errno))
+      else:
+          return "S! %s" % (self.message,)
 
-def make_sift_error(msg):
-  return SIFTError(msg)
+def make_sift_error(msg, errno):
+  return SIFTError(msg, errno)
 
 
 class MatchResult:
-  def __init__(self, tuple):
-    self.label = tuple[0]
-    self.score = tuple[1]
-    self.percentage = tuple[2]
+    def __init__(self, tuple):
+        self.label = tuple[0]
+        self.score = tuple[1]
+        self.percentage = tuple[2]
+
+    def __str__(self):
+        return "<MatchResult %s %s %s%%>" % (self.label, self.score, self.percentage)
+    def __repr__(self):
+        return "<MatchResult %s %s %s%%>" % (self.label, self.score, self.percentage)
 
                        
 
@@ -56,6 +67,13 @@ class Database(sift_ptr):
     def match_image_file(self, path):
         return [MatchResult(t) for t in _sift.database_match_image_file(self, path)]
 
+    def save(self, path):
+      return siftlib.sift_database_save(self, path)
+
+    def load(self, path):
+      return siftlib.sift_database_load(self, path)
+
+
 
 
 siftlib.sift_database_new.argtypes = []
@@ -65,3 +83,8 @@ siftlib.sift_database_contains_label.argtypes = [Database, ctypes.c_char_p]
 siftlib.sift_database_image_count.argtypes = [Database]
 siftlib.sift_database_feature_count.argtypes = [Database]
 siftlib.sift_database_remove_image.argtypes = [Database, ctypes.c_char_p]
+siftlib.sift_database_save.argtypes = [Database, ctypes.c_char_p]
+siftlib.sift_database_load.argtypes = [Database, ctypes.c_char_p]
+
+libc.strerror.argtypes = [ctypes.c_int]
+libc.strerror.restype = ctypes.c_char_p;

@@ -17,6 +17,7 @@ namespace SIFT
 {
 
   const std::string& get_last_error();
+  int get_last_errno();
 
 
   // Interface for reference counting.

@@ -66,7 +66,7 @@ unsigned SObjectImpl::ref_count()
 static std::string last_error("");
 static int last_errno(0);
 
-int get_last_errno()
+int SIFT::get_last_errno()
 {
   return last_errno;
 }
@@ -139,7 +139,7 @@ bool Database::add_image_file(const std::string& path, const std::string& label)
     IplImage *image = cvLoadImage(path.c_str(), 1);
     if (!image) {
       std::stringstream s;
-      s << "Error loading image '" << path << "': " << strerror(errno);
+      s << "Error loading image '" << path << "'";
       set_last_error(s.str(), errno);
       return false;
     }
@@ -475,104 +475,120 @@ bool Database::save(const char* path, bool binary)
 {
     FILE* file;
 
-    if (!(file = fopen(path, "w" ))) {
-        fprintf( stderr, "Warning: error opening %s, %s, line %d\n",
-                 path, __FILE__, __LINE__ );
-        return false;
+    if (!(file = fopen(path, "wb" ))) {
+      set_last_error(std::string("Unable to open file '") + std::string(path) + 
+		     std::string("'"), errno);
+      return false;
     }
 
     fprintf(file, "%d\n", image_count());
     for (std::map<unsigned,std::string>::const_iterator i = m_id_label_map.begin();
          i != m_id_label_map.end();
          i++) {
-        fprintf(file, "%d\n%s\n", i->first, i->second.c_str());
+      fprintf(file, "%d\n%s\n", i->first, i->second.c_str());
     }
-
+    
     for (FeatureInfoVector::const_iterator i = m_uncoalesced_features.begin();
          i != m_uncoalesced_features.end();
          i++) {
-        int result;
-        if (binary) {
-            result = export_features_binary_f(file, i->features, i->num_features);
-        } else {
-            result = export_features_text_f(file, i->features, i->num_features);
-        }
-        if (result != 0) {
-            return false;
-        }
+      int result;
+      if (binary) {
+	result = export_features_binary_f(file, i->features, i->num_features);
+      } else {
+	result = export_features_text_f(file, i->features, i->num_features);
+      }
+      if (result != 0) {
+	set_last_error("Error writing features.", errno);
+	return false;
+      }
     }
     if (fclose(file)) {
-        perror("Error saving database: close:");
+      set_last_error(std::string("Error while sabing database '") + std::string(path) +
+		     std::string("'"), errno);
         return false;
     } else {
-        return true;
+      return true;
     }
 }
 
 bool Database::load(const char* path, bool binary)
 {
-    FILE *file;
-    int i;
-
-    if (!(file = fopen(path, "r" ))) {
-        fprintf(stderr, "Error opening '%s': %s\n", path, strerror(errno));
-        return false;
-    }
-
-    unsigned max_id = 0;
-    int num_images;
+  FILE *file;
+  int i;
+  
+  if (!(file = fopen(path, "r" ))) {
+    set_last_error(std::string("Error while opening file '") + std::string(path) +
+		   std::string("'"), errno);
+    return false;
+  }
+  
+  unsigned max_id = 0;
+  int num_images;
+  
+  /* Read number of images. */
+  if (fscanf(file, " %u ", &num_images) != 1) {
+    set_last_error(std::string("Error while reading number of images from file '") +
+		   std::string(path) + std::string("'"), errno);
+    return false;
+  }
+  
+  for (i = 0; i < num_images; i++) {
+    unsigned id;
+    char label[4096];
     
-    /* Read number of images. */
-    if (fscanf(file, " %u ", &num_images) != 1) {
-        perror("File read error: num_images");
-        return false;
+    // Read ID.
+    if (fscanf(file, " %u ", &id) != 1) {
+      std::stringstream s;
+      s << "Error while reading ID for image #" << i << " from file '"
+	<< path << "'";
+      set_last_error(s.str(), errno);
+      return false;
     }
-
-    for (i = 0; i < num_images; i++) {
-        unsigned id;
-        char label[4096];
-        
-        // Read ID.
-        if (fscanf(file, " %u ", &id) != 1) {
-            perror("File read error: id");
-            return false;
-        }
-        // Read label.
-        if (!fgets(label, sizeof label, file)) {
-            perror("File read error: label");
-            return false;
-        }
-        // Trim newline.
-        label[strlen(label) - 1] = '\0';
-	std::string l(label);
-	m_id_label_map[id] = l;
-	m_label_id_map[l] = id;
-
-        if (id > max_id) {
-            max_id = id;
-        }
+    // Read label.
+    if (!fgets(label, sizeof label, file)) {
+      std::stringstream s;
+      s << "Error while reading label for image #" << i << " from file '"
+	<< path << "'";
+      set_last_error(s.str(), errno);
+      return false;
     }
-
-    for (int i = 0; i < num_images; i++) {
-        struct feature *features;
-        int n;
-        if (binary) {
-            n = import_features_binary_f(file, FEATURE_LOWE, &features);
-        } else {
-            n = import_features_text_f(file, FEATURE_LOWE, &features);
-        }
-        if (n < 0) return false;
-
-        FeatureInfo f;
-        f.num_features = n;
-        f.features = features;
-        f.id = (unsigned) f.features[0].feature_data;
-        m_uncoalesced_features.push_back(f);
+    // Trim newline.
+    label[strlen(label) - 1] = '\0';
+    std::string l(label);
+    m_id_label_map[id] = l;
+    m_label_id_map[l] = id;
+    
+    if (id > max_id) {
+      max_id = id;
     }
+  }
 
-    fclose(file);
-    m_filename = std::string(path);
-    m_id_counter = max_id + 1;
-    m_need_to_coalesce = true;
-    return true;
+  for (int i = 0; i < num_images; i++) {
+    struct feature *features;
+    int n;
+    if (binary) {
+      n = import_features_binary_f(file, FEATURE_LOWE, &features);
+    } else {
+      n = import_features_text_f(file, FEATURE_LOWE, &features);
+    }
+    if (n < 0) {
+      std::stringstream s;
+      s << "Error while reading features for image #" << i << " from file '"
+	<< path << "'";
+      set_last_error(s.str(), errno);
+      return false;
+    }
+    
+    FeatureInfo f;
+    f.num_features = n;
+    f.features = features;
+    f.id = (unsigned) f.features[0].feature_data;
+    m_uncoalesced_features.push_back(f);
+  }
+  
+  fclose(file);
+  m_filename = std::string(path);
+  m_id_counter = max_id + 1;
+  m_need_to_coalesce = true;
+  return true;
 }
