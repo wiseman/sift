@@ -4,7 +4,7 @@
 AC_PREREQ(2.61)
 AC_INIT([FULL-PACKAGE-NAME],[VERSION],[BUG-REPORT-ADDRESS])
 AM_INIT_AUTOMAKE(sift, 1.0)
-AC_CONFIG_SRCDIR([config.h.in])
+AC_CONFIG_SRCDIR(src/sift.c)
 AC_CONFIG_HEADER([config.h])
 
 LT_INIT
@@ -35,7 +35,7 @@ AC_FUNC_STRTOD
 AC_FUNC_VPRINTF
 AC_CHECK_FUNCS([memset pow sqrt strerror strrchr strtol])
 
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([Makefile src/Makefile])
 AC_OUTPUT
 
 AC_CONFIG_MACRO_DIR([m4])
