@@ -1,3 +1,5 @@
+CLEANFILES = *.pyc
+
 AM_CFLAGS=`pkg-config --cflags opencv` `pkg-config --cflags gtk+-2.0` `pkg-config --cflags gsl` -I /usr/include/python2.5 -Wall
 AM_CXXFLAGS=`pkg-config --cflags opencv` `pkg-config --cflags gtk+-2.0` `pkg-config --cflags gsl` -I /usr/include/python2.5
 AM_LDFLAGS=`pkg-config --libs opencv` `pkg-config --libs gtk+-2.0` `pkg-config --libs gsl`
