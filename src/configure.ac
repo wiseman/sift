@@ -12,7 +12,6 @@ LT_INIT
 # Checks for programs.
 AC_PROG_CXX
 AC_PROG_CC
-AC_PROG_RANLIB
 
 # Checks for libraries.
 # FIXME: Replace `main' with a function in `-lsift':
@@ -38,3 +37,5 @@ AC_CHECK_FUNCS([memset pow sqrt strerror strrchr strtol])
 
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
+
+AC_CONFIG_MACRO_DIR([m4])
