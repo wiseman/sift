@@ -1,6 +1,4 @@
 #!/bin/sh
 
-aclocal
-libtoolize --automake
-autoconf
-automake
+autoreconf -f -i -Wall
+rm -rf autom4te.cache config.h.in~
