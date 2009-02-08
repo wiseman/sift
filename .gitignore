@@ -1,7 +1,6 @@
 *.lo
 *.la
 Makefile
-Makefile.in
 autom4te.cache
 .deps
 .libs
