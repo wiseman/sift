@@ -18,7 +18,7 @@ To build:
     gsl-dev
     libgsl0-dev
 
-2. cd src && ./autogen.sh && ./configure && make
+2. ./autogen.sh && ./configure && make
 
 See src/tests/test_sift.py for what the library is capable of at the
 moment.
